@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitLife Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🏋️</span>
+                <h1>FitLife Club</h1>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <button class="nav-toggle" id="navToggle" aria-controls="primaryNav" aria-expanded="false">☰</button>
+                <ul id="primaryNav">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#diet">Diet Plans</a></li>
+                    <li><a href="#trainer">Trainers</a></li>
+                    <li><a href="#booking">Book Slot</a></li>
+                    <li><a href="#clothes">Clothing</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#payment">Subscribe</a></li>
+                </ul>
+            </nav>
+            <button id="cartBtn" class="btn" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero" style="background: linear-gradient(rgba(138,190,185,0.10), rgba(138,190,185,0.10)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop&t=4') center bottom/cover no-repeat; background-attachment: fixed; background-blend-mode: screen;">
+            <div class="container hero-inner">
+                <div>
+                    <h2>Transform Your Fitness Journey</h2>
+                    <p>Personalized diet plans, expert trainers, flexible time slots, and premium fitness apparel — all in one place.</p>
+                    <div class="cta-row">
+                        <a class="btn primary" href="#payment">Join Now</a>
+                        <a class="btn ghost" href="#diet">Explore Plans</a>
+                    </div>
+                </div>
+                <div class="hero-card" aria-hidden="true">
+                    <div class="stat">
+                        <span class="value">2500+</span>
+                        <span class="label">Active Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">35</span>
+                        <span class="label">Expert Trainers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">120</span>
+                        <span class="label">Daily Slots</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diet" class="section">
+            <div class="container">
+                <h3>Diet Plan Showcase</h3>
+                <p class="section-sub">Choose a plan tailored to your goals. Mix and match weekly menus.</p>
+                <div class="cards-grid" id="dietPlans">
+                    <!-- Diet cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="trainer" class="section alt">
+            <div class="container">
+                <h3>Trainer Subscription Plans</h3>
+                <p class="section-sub">Train with the best. Pick a plan and start today.</p>
+                <div class="pricing-grid" id="trainerPlans">
+                    <!-- Trainer pricing injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section">
+            <div class="container">
+                <h3>Book Your GYM Time Slot</h3>
+                <p class="section-sub">Secure your preferred time. Instant confirmation.</p>
+                <form id="bookingForm" class="card form">
+                    <div class="form-row">
+                        <label for="memberName">Full Name</label>
+                        <input type="text" id="memberName" name="memberName" placeholder="John Doe" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="bookingDate">Date</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="timeSlot">Time Slot</label>
+                        <select id="timeSlot" name="timeSlot" required>
+                            <option value="">Select a slot</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn primary">Book Slot</button>
+                    </div>
+                    <p class="form-help" id="bookingHelp" aria-live="polite"></p>
+                </form>
+
+                <div class="card">
+                    <h4>Your Upcoming Bookings</h4>
+                    <ul id="bookingList" class="list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="clothes" class="section alt">
+            <div class="container">
+                <h3>Fitness Clothes</h3>
+                <p class="section-sub">Move better in apparel engineered for performance.</p>
+                <div class="product-grid" id="products">
+                    <!-- Products injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="shop" class="section">
+            <div class="container">
+                <h3>Apparel Shop</h3>
+                <p class="section-sub">Browse colorful, performance-ready apparel. Add items to your cart.</p>
+                <div class="product-grid" id="shopGrid">
+                    <!-- Shop items injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="payment" class="section">
+            <div class="container">
+                <h3>Payment & Offers</h3>
+                <p class="section-sub">Choose a subscription and apply available offers.</p>
+                <div class="payment-layout">
+                    <form id="paymentForm" class="card form">
+                        <div class="form-row">
+                            <label for="subscriberName">Full Name</label>
+                            <input type="text" id="subscriberName" name="subscriberName" placeholder="Jane Smith" required />
+                        </div>
+                        <div class="form-row">
+                            <label for="subscriberEmail">Email</label>
+                            <input type="email" id="subscriberEmail" name="subscriberEmail" placeholder="jane@example.com" required />
+                        </div>
+                        <div class="form-row">
+                            <label for="planSelect">Subscription Plan</label>
+                            <select id="planSelect" required></select>
+                        </div>
+                        <div class="form-row">
+                            <label for="offerSelect">Offer</label>
+                            <select id="offerSelect">
+                                <option value="none">No Offer</option>
+                                <option value="NEW10">NEW10 - 10% off</option>
+                                <option value="FIT20">FIT20 - 20% off (Annual only)</option>
+                            </select>
+                        </div>
+                        <div class="form-row grid-2">
+                            <div>
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242" required />
+                            </div>
+                            <div>
+                                <label for="cardExpiry">Expiry (MM/YY)</label>
+                                <input type="text" id="cardExpiry" inputmode="numeric" maxlength="5" placeholder="12/29" required />
+                            </div>
+                        </div>
+                        <div class="form-row grid-2">
+                            <div>
+                                <label for="cardCVC">CVC</label>
+                                <input type="text" id="cardCVC" inputmode="numeric" maxlength="4" placeholder="123" required />
+                            </div>
+                            <div class="totals">
+                                <div><span>Subtotal:</span><strong id="subtotal">$0</strong></div>
+                                <div><span>Discount:</span><strong id="discount">-$0</strong></div>
+                                <div class="grand"><span>Total:</span><strong id="grandTotal">$0</strong></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="submit" class="btn primary">Pay & Subscribe</button>
+                        </div>
+                        <p class="form-help" id="paymentHelp" aria-live="polite"></p>
+                    </form>
+
+                    <aside class="card">
+                        <h4>Why Subscribe?</h4>
+                        <ul class="list">
+                            <li>Unlimited gym access during open hours</li>
+                            <li>Personalized nutrition guidance</li>
+                            <li>Monthly progress tracking</li>
+                            <li>Exclusive apparel discounts</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Panel -->
+    <div id="cartOverlay" class="cart-overlay" hidden></div>
+    <aside id="cartPanel" class="cart-panel" aria-hidden="true">
+        <div class="cart-header">
+            <h4>Your Cart</h4>
+            <button id="closeCart" class="btn ghost" aria-label="Close cart">✖</button>
+        </div>
+        <ul id="cartList" class="list"></ul>
+        <div class="cart-footer">
+            <div class="totals"><div><span>Items:</span> <strong id="cartItems">0</strong></div><div class="grand"><span>Total:</span> <strong id="cartTotal">$0.00</strong></div></div>
+            <button id="checkoutBtn" class="btn primary">Checkout</button>
+        </div>
+    </aside>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> FitLife Club. All rights reserved.</p>
+            <div class="socials" aria-label="Social links">
+                <a href="#" aria-label="Instagram">📸</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
